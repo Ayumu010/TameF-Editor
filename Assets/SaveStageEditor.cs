@@ -4,6 +4,7 @@ using System.IO;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Text.Json;
 
 public class SaveStageEditor
 {
@@ -27,7 +28,7 @@ public class SaveStageEditor
         }
 
         SaveStageDeta saveData = Object.FindObjectOfType<SaveStageDeta>();
-        saveData.Save(saveData.dateList);
+        saveData.Save();
 
         Debug.Log($"ステージデータを保存しました");
     }

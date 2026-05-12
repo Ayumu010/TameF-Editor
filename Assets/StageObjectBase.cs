@@ -14,7 +14,7 @@ public struct StageObjectDefaultData<T>
     public Vector3 position;
     public Vector3 scale;
     public Vector3 rotationEuler;
-    public T data;
+    public T childObjectData;
 }
 
 public abstract class StageObjectBase : MonoBehaviour

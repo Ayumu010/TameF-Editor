@@ -6,14 +6,16 @@ using UnityEngine;
 
 //基底データとオブジェクト固有のデータをまとめる構造体
 [SerializeField, Serializable]
-public struct BoxSerializeData
+public struct ChildObjectBaseDate
 {
+    public int hp;
+    public int maxHp;
 }
 
-public class Box : StageObjectBase
+public class ChildObjectBase : StageObjectBase
 {
     [SerializeField]
-    public BoxSerializeData Data;
+    public ChildObjectBaseDate Data;
 
     // Start で自動的にシリアライズして jsonString を作る例
     void Start()
@@ -24,7 +26,7 @@ public class Box : StageObjectBase
     // StageObjectBase の抽象メソッドを実装
     public override void RegisterSerialize()
     {
-       var save = PrepareBaseData<BoxSerializeData>("Box");
+       var save = PrepareBaseData<ChildObjectBaseDate>("Box");
         save.childObjectData = Data;
         SendSavedData(save);
     }

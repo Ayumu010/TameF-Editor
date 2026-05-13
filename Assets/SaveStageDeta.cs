@@ -34,7 +34,7 @@ public class SaveStageDeta : MonoBehaviour
 
         try
         {
-            File.WriteAllText(filePath, fileContent, Encoding.UTF8);
+            File.WriteAllText(filePath, fileContent, new UTF8Encoding(false));
             Debug.Log($"Saved stage data to: {filePath} (count={dateList.Count})");
         }
         catch (Exception ex)

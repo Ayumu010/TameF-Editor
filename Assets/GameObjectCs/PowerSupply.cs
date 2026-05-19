@@ -24,7 +24,7 @@ public class PowerSupply : StageObjectBase
     // StageObjectBase ‚Ì’ŠÛƒƒ\ƒbƒh‚ğÀ‘•
     public override void RegisterSerialize()
     {
-       var save = PrepareBaseData<PowerSupplyObjDate>("Floor");
+       var save = PrepareBaseData<PowerSupplyObjDate>("PowerSupply");
         save.childObjectData = Data;
         SendSavedData(save);
     }

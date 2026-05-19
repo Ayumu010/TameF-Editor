@@ -28,7 +28,7 @@ public class TrapDoorAxisDesc : StageObjectBase
     // StageObjectBase ‚Ì’ŠÛƒƒ\ƒbƒh‚ğÀ‘•
     public override void RegisterSerialize()
     {
-       var save = PrepareBaseData<TrapDoorAxisDescDate>("TrapDoorAxisDesc");
+       var save = PrepareBaseData<TrapDoorAxisDescDate>("TrapDoorAxis");
         save.childObjectData = Data;
         SendSavedData(save);
     }

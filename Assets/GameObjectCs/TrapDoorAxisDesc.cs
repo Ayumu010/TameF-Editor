@@ -6,15 +6,18 @@ using UnityEngine;
 
 //基底データとオブジェクト固有のデータをまとめる構造体
 [SerializeField, Serializable]
-public struct PlayerObjectDate
+public struct TrapDoorAxisDescDate
 {
-    public float InkMax;
+    public Vector3 InitialRotation;
+    public MoveAxis Axis;
+    public float Speed;
+    public int PortID;
 }
 
-public class Player : StageObjectBase
+public class TrapDoorAxisDesc : StageObjectBase
 {
     [SerializeField]
-    public PlayerObjectDate Data;
+    public TrapDoorAxisDescDate Data;
 
     // Start で自動的にシリアライズして jsonString を作る例
     void Start()
@@ -25,7 +28,7 @@ public class Player : StageObjectBase
     // StageObjectBase の抽象メソッドを実装
     public override void RegisterSerialize()
     {
-        var save = PrepareBaseData<PlayerObjectDate>("Player");
+       var save = PrepareBaseData<TrapDoorAxisDescDate>("TrapDoorAxisDesc");
         save.childObjectData = Data;
         SendSavedData(save);
     }

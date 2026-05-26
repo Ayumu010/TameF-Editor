@@ -6,18 +6,15 @@ using UnityEngine;
 
 //基底データとオブジェクト固有のデータをまとめる構造体
 [SerializeField, Serializable]
-public struct TrapDoorAxisDescDate
+public struct BeltConveyerDate
 {
-    public Vector3 InitialRotation;
-    public MoveAxis Axis;
-    public float Speed;
     public int PortID;
 }
 
-public class TrapDoorAxisDesc : StageObjectBase
+public class BeltConveyer : StageObjectBase
 {
     [SerializeField]
-    public TrapDoorAxisDescDate Data;
+    public BeltConveyerDate Data;
 
     // Start で自動的にシリアライズして jsonString を作る例
     void Start()
@@ -28,9 +25,7 @@ public class TrapDoorAxisDesc : StageObjectBase
     // StageObjectBase の抽象メソッドを実装
     public override void RegisterSerialize()
     {
-       var save = PrepareBaseData<TrapDoorAxisDescDate>("TrapDoorAxis");
-        Vector3 rotationRad = Data.InitialRotation * Mathf.Deg2Rad;
-        Data.InitialRotation= rotationRad;
+       var save = PrepareBaseData<BeltConveyerDate>("BeltConveyer");
         save.childObjectData = Data;
         SendSavedData(save);
     }

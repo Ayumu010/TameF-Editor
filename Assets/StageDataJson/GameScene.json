@@ -1,0 +1,65 @@
+{
+  "Gameobj": [
+{
+    "type": "Player",
+    "position": {
+        "x": 0.0,
+        "y": 1.0,
+        "z": 0.0
+    },
+    "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+    },
+    "rotationEuler": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+    },
+    "childObjectData": {
+        "InkMax": 10.0
+    }
+},
+{
+    "type": "BeltConveyer",
+    "position": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 3.0899999141693117
+    },
+    "scale": {
+        "x": 4.376399993896484,
+        "y": 0.4376400113105774,
+        "z": 4.376399993896484
+    },
+    "rotationEuler": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+    },
+    "childObjectData": {
+        "PortID": 0
+    }
+},
+{
+    "type": "Floor",
+    "position": {
+        "x": 0.0,
+        "y": -0.5,
+        "z": 0.0
+    },
+    "scale": {
+        "x": 50.0,
+        "y": 1.0,
+        "z": 50.0
+    },
+    "rotationEuler": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+    },
+    "childObjectData": {}
+}
+  ]
+}

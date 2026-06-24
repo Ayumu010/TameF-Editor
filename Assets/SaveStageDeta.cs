@@ -34,6 +34,7 @@ public class SaveStageDeta : MonoBehaviour
         Directory.CreateDirectory(folderPath);
         string filePath = Path.Combine(folderPath, sceneName + ".json");
 
+        var playerItems = new List<string>();
         var portItems = new List<string>();
         var otherItems = new List<string>();
 
@@ -49,10 +50,22 @@ public class SaveStageDeta : MonoBehaviour
             {
                 // JsonUtility で type フィールドだけ読み取る
                 var wrapper = JsonUtility.FromJson<TypeOnly>(raw);
-                if (!string.IsNullOrEmpty(wrapper?.type) &&
-                    wrapper.type.StartsWith("Port", StringComparison.OrdinalIgnoreCase))
+                if (!string.IsNullOrEmpty(wrapper?.type))
                 {
-                    portItems.Add(raw);
+                    // Player を先頭グループへ
+                    if (wrapper.type.StartsWith("Player", StringComparison.OrdinalIgnoreCase))
+                    {
+                        playerItems.Add(raw);
+                    }
+                    // Port を次のグループへ
+                    else if (wrapper.type.StartsWith("Port", StringComparison.OrdinalIgnoreCase))
+                    {
+                        portItems.Add(raw);
+                    }
+                    else
+                    {
+                        otherItems.Add(raw);
+                    }
                 }
                 else
                 {
@@ -66,8 +79,9 @@ public class SaveStageDeta : MonoBehaviour
             }
         }
 
-        // Port群を先頭にして順序を維持
-        var ordered = new List<string>(portItems.Count + otherItems.Count);
+        // Player -> Port -> Other の順で、各グループ内の順序は保持
+        var ordered = new List<string>(playerItems.Count + portItems.Count + otherItems.Count);
+        ordered.AddRange(playerItems);
         ordered.AddRange(portItems);
         ordered.AddRange(otherItems);
 
@@ -87,6 +101,7 @@ public class SaveStageDeta : MonoBehaviour
             // 失敗時は dateList を保持しておく
         }
     }
+    
     ///拡張で保存ボタンを作る
     [CustomEditor(typeof(SaveStageDeta))]
     public class SaveCSVEditor : Editor

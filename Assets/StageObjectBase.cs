@@ -13,7 +13,7 @@ public struct StageObjectDefaultData<T>
     public string type;
     public Vector3 position;
     public Vector3 scale;
-    public Vector3 rotationEuler;
+    public Vector3 rotation;
     public T childObjectData;
 }
 
@@ -29,7 +29,10 @@ public abstract class StageObjectBase : MonoBehaviour
         d.type = string.IsNullOrEmpty(typeName) ? gameObject.name : typeName;
         d.position = transform.position;
         d.scale = transform.localScale;
-        d.rotationEuler = transform.eulerAngles;
+        Vector3 eulerDeg = transform.eulerAngles;
+        Vector3 eulerRad = eulerDeg * Mathf.Deg2Rad;
+        d.rotation = eulerRad;
+        
         return d;
     }
 

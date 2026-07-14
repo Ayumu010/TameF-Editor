@@ -8,6 +8,7 @@ using UnityEngine;
 [SerializeField, Serializable]
 public struct ObstacleSpringDate
 {
+    public Vector3 MoveDir;
 }
 
 public class ObstacleSpring : StageObjectBase

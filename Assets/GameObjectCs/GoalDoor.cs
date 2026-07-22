@@ -8,7 +8,7 @@ using UnityEngine;
 [SerializeField, Serializable]
 public struct GoalDoorDate
 {
-    public Vector3 MoveDir;
+    public DoorSide Side;
     public int PortID;
 }
 

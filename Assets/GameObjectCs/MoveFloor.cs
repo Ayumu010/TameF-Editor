@@ -10,6 +10,12 @@ public enum MoveAxis
     Z
 }
 
+public enum DoorSide
+{
+    Left,
+    Right
+}
+
 //基底データとオブジェクト固有のデータをまとめる構造体
 [SerializeField, Serializable]
 public struct MoveFloorObjectDate

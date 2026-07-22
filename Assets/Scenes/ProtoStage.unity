@@ -502,6 +502,10 @@ PrefabInstance:
       value: GoalDoor (1)
       objectReference: {fileID: 0}
     - target: {fileID: 7798637082057793121, guid: 2d9d64abb5e0b3846829d141977751cf, type: 3}
+      propertyPath: Data.Side
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7798637082057793121, guid: 2d9d64abb5e0b3846829d141977751cf, type: 3}
       propertyPath: Data.PortID
       value: 3
       objectReference: {fileID: 0}
@@ -1764,6 +1768,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4045597082840224603, guid: e844e3ed8709fe048bde990c6b155ce4, type: 3}
+      propertyPath: Data.Axis
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4045597082840224603, guid: e844e3ed8709fe048bde990c6b155ce4, type: 3}
       propertyPath: Data.Speed
       value: -0.01
